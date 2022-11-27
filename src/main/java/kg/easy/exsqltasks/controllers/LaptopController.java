@@ -1,0 +1,24 @@
+package kg.easy.exsqltasks.controllers;
+
+import kg.easy.exsqltasks.models.Laptop;
+import kg.easy.exsqltasks.services.LaptopService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/laptop")
+public class LaptopController {
+
+    @Autowired
+    private LaptopService laptopService;
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Laptop> findAll() {
+        return laptopService.findAll();
+    }
+
+}
